@@ -1,0 +1,1 @@
+export default function AgentsPage() { return <section className="form-panel"><p className="eyebrow">Agent provisioning</p><h1>No delegated agent is connected.</h1><p>Fixture mode uses an illustrative agent label only. A live agent signer must be provisioned separately from the owner wallet and scoped to that owner.</p></section>; }
