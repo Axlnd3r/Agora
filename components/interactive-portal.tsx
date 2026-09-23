@@ -1,30 +1,40 @@
 "use client";
 
-import { PointerEvent, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
-export function InteractivePortal() {
-  const sceneRef = useRef<HTMLDivElement>(null);
+const PORTAL_FILM = "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260808_112712_da9d53df-6d27-4b12-bdf6-aa9dc2622bdf.mp4";
 
-  function move(event: PointerEvent<HTMLDivElement>) {
-    if (event.pointerType === "touch") return;
-    const bounds = event.currentTarget.getBoundingClientRect();
-    const x = ((event.clientX - bounds.left) / bounds.width - 0.5) * 12;
-    const y = ((event.clientY - bounds.top) / bounds.height - 0.5) * 8;
-    sceneRef.current?.style.setProperty("--portal-x", `${x}px`);
-    sceneRef.current?.style.setProperty("--portal-y", `${y}px`);
-  }
+export function CinematicPortal() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [motionAllowed, setMotionAllowed] = useState(false);
 
-  function reset() {
-    sceneRef.current?.style.setProperty("--portal-x", "0px");
-    sceneRef.current?.style.setProperty("--portal-y", "0px");
-  }
+  useEffect(() => {
+    const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const syncPlayback = () => {
+      setMotionAllowed(!preference.matches);
+      if (preference.matches) videoRef.current?.pause();
+      else void videoRef.current?.play().catch(() => undefined);
+    };
+
+    syncPlayback();
+    preference.addEventListener("change", syncPlayback);
+    return () => preference.removeEventListener("change", syncPlayback);
+  }, []);
 
   return (
-    <div ref={sceneRef} className="portal-scene" aria-hidden="true" onPointerMove={move} onPointerLeave={reset}>
-      <div className="portal-haze" />
-      <div className="portal-rings"><i /><i /><i /></div>
-      <div className="portal" />
-      <div className="portal-figure" />
+    <div className="portal-scene cinematic-plate" aria-hidden="true">
+      <video
+        ref={videoRef}
+        className="plate-video"
+        autoPlay={motionAllowed}
+        muted
+        loop
+        playsInline
+        preload="auto"
+        tabIndex={-1}
+      >
+        <source src={PORTAL_FILM} type="video/mp4" />
+      </video>
     </div>
   );
 }
