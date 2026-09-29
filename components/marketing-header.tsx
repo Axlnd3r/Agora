@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import agoraLogo from "../Agora Logo.png";
 
 export function MarketingHeader() {
   const [open, setOpen] = useState(false);
@@ -27,7 +29,7 @@ export function MarketingHeader() {
 
   return (
     <header className="marketing-header">
-      <Link className="brand" href="/" aria-label="Agora home"><span className="brand-mark" aria-hidden="true" />Agora</Link>
+      <Link className="brand" href="/" aria-label="Agora home"><Image className="brand-logo" src={agoraLogo} alt="" priority />Agora</Link>
       <nav className="desktop-nav" aria-label="Main navigation">
         <a href="#how-it-works">How it works</a><a href="#security">Security boundary</a><a href="#architecture">Architecture</a>
       </nav>

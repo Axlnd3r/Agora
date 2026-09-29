@@ -1,8 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import agoraLogo from "../Agora Logo.png";
 import { BSC_TESTNET_CHAIN_ID, shortenAddress } from "../lib/chain";
 import { useWallet } from "./wallet-provider";
 
@@ -33,7 +35,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   return <div className="app-frame">
     <a className="skip-link" href="#main-content">Skip to main content</a>
     <header className="app-topbar">
-      <Link className="brand" href="/"><span className="brand-mark" aria-hidden="true" />Agora</Link>
+      <Link className="brand" href="/"><Image className="brand-logo" src={agoraLogo} alt="" priority />Agora</Link>
       <span className="testnet-label">BNB Testnet · live contracts</span>
       <button className="app-menu" aria-label={menuOpen ? "Close application navigation" : "Open application navigation"} aria-expanded={menuOpen} aria-controls="app-navigation" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? "Close" : "Menu"}</button>
       {wallet.address && <span className="wallet-label" title={wallet.address}>{wallet.chainId === BSC_TESTNET_CHAIN_ID ? shortenAddress(wallet.address) : `Chain ${wallet.chainId ?? "?"}`}</span>}

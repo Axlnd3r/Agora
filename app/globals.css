@@ -23,7 +23,7 @@ button { cursor:pointer; }
 .portal-figure::before { content:""; position:absolute; width:10px; height:10px; border-radius:50%; background:#161711; top:-8px; }
 .marketing-header { height:88px; padding:22px clamp(22px,5vw,76px); display:flex; align-items:center; gap:28px; position:relative; z-index:3; }
 .brand { display:inline-flex; align-items:center; gap:10px; text-decoration:none; font-size:20px; font-weight:700; letter-spacing:-.05em; }
-.brand-mark { width:16px; height:24px; border:2px solid currentColor; border-left-width:6px; display:inline-block; transform:skewY(-14deg); }
+.brand-logo { width:28px; height:28px; object-fit:contain; flex:none; }
 .desktop-nav { display:flex; gap:28px; margin:auto; } .desktop-nav a,.footer a,.surface a,.activity-row>a { color:var(--muted); text-decoration:none; font-size:14px; } .desktop-nav a:hover,.footer a:hover,.surface a:hover,.activity-row>a:hover { color:var(--ink); }
 .button { min-height:44px; display:inline-flex; align-items:center; justify-content:center; border:1px solid var(--line); border-radius:999px; padding:10px 18px; font-size:14px; font-weight:700; text-decoration:none; background:transparent; color:var(--ink); transition:transform .24s cubic-bezier(.22,1,.36,1),background-color .24s,border-color .24s,color .24s; }
 .button:hover:not(:disabled) { transform:translateY(-2px); }
