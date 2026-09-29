@@ -1,0 +1,42 @@
+{
+  "network": "BNB Smart Chain Testnet",
+  "chainId": 97,
+  "deployer": "0xDcF6FA998Ba319eDf790e243E100C2f48210282E",
+  "startedAt": "2026-09-28T01:18:16.013Z",
+  "status": "complete",
+  "contracts": {
+    "DemoUSD": "0x6c83e42A7864789c377f5bfD647942A2B526613A",
+    "VaultFactory": "0x34a5FaA12ad0eCcC627D5AD3065C94D386fB62BF",
+    "MandateVault": "0x2B40F649475B2833F5a61600bD069ea98C99260f"
+  },
+  "transactions": {
+    "DemoUSD": "0x82df99efa7f2fd62974429f186a5649bc6257a986148360d181795aaf7ef424f",
+    "VaultFactory": "0x8089760042b6191520bf7818f0e3035ea633e86e94436561e7951b963bdfc74f",
+    "createVault": "0xc518ec88d36df8bba43ee908db2b93be1acbcd2bbe9e921d16381aad58e0c3e8",
+    "mUSDFaucet": "0x1a6b1eefc8a1b678ab5ea83f56755b6b52c6ce29ee5462535ae308e605f71cac"
+  },
+  "demoBalance": "100 mUSD",
+  "completedAt": "2026-09-28T01:18:37.815Z",
+  "sourceVerification": {
+    "provider": "Sourcify",
+    "status": "exact_match",
+    "verifiedAt": "2026-09-28T02:00:04Z",
+    "contracts": {
+      "DemoUSD": {
+        "match": "exact_match",
+        "url": "https://repo.sourcify.dev/97/0x6c83e42A7864789c377f5bfD647942A2B526613A",
+        "bscScan": "https://testnet.bscscan.com/address/0x6c83e42A7864789c377f5bfD647942A2B526613A#code"
+      },
+      "VaultFactory": {
+        "match": "exact_match",
+        "url": "https://repo.sourcify.dev/97/0x34a5FaA12ad0eCcC627D5AD3065C94D386fB62BF",
+        "bscScan": "https://testnet.bscscan.com/address/0x34a5FaA12ad0eCcC627D5AD3065C94D386fB62BF#code"
+      },
+      "MandateVault": {
+        "match": "exact_match",
+        "url": "https://repo.sourcify.dev/97/0x2B40F649475B2833F5a61600bD069ea98C99260f",
+        "bscScan": "https://testnet.bscscan.com/address/0x2B40F649475B2833F5a61600bD069ea98C99260f#code"
+      }
+    }
+  }
+}

@@ -6,17 +6,24 @@
     "lint": "next lint",
     "contracts:build": "node scripts/compile-contracts.mjs",
     "contracts:check": "node --test tests/contracts-artifacts.test.mjs",
+    "deploy:testnet": "npm run contracts:build && node scripts/deploy-testnet.mjs",
+    "verify:sourcify": "node scripts/verify-sourcify.mjs",
+    "demo:signers": "node scripts/setup-demo-signers.mjs",
+    "demo:chain": "node scripts/check-demo-chain.mjs",
+    "demo:seed": "node scripts/seed-demo-testnet.mjs",
+    "demo:smoke": "node scripts/smoke-demo-payment.mjs",
+    "demo:retry": "node scripts/retry-demo-payment.mjs",
     "verify": "npm run contracts:build && npm run contracts:check && npm run build"
   },
   "dependencies": {
     "@openzeppelin/contracts": "^5.4.0",
     "codex": "^0.2.3",
+    "ethers": "^6.17.0",
     "lucide-react": "^1.47.0",
     "next": "^16.3.5",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
-    "solc": "^0.8.30",
-    "zod": "^4.1.11"
+    "solc": "^0.8.30"
   },
   "devDependencies": {
     "@types/node": "26.6.2",

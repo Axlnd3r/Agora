@@ -11,14 +11,13 @@ Design direction: cinematic web3 builder landing page with a controlled-portal m
 | Asymmetric landing sequence | The story moves from authority to process to the enforcement boundary to the architecture, rather than using a repeated feature-card grid. |
 | Small, one-time visual transitions only | Motion supports the cinematic landing hierarchy. Reduced-motion users receive the same content without movement. |
 | Reduced-motion-aware video playback | The hero film carries the requested motion; users who request reduced motion receive the same composition with playback paused. |
-| Animated fixture replay | A short status strip explains policy, quote, receipt, and delivery order while keeping the whole interaction labelled as a local fixture. |
 | Full-bleed portal film on the landing hero | The supplied doorway, walking figure, and drifting smoke make the existing controlled-access motif legible at a glance; a measured dark scrim protects headline contrast and the clip pauses for reduced-motion preferences. |
-| Four factual footer labels instead of partner marks | The page has no verified partner logos, so the bottom strip names the current testnet target and demo boundaries without implying endorsements. |
-| One enlarged protocol diagram with the mandate vault as its visual center | The architecture section needs to explain the actual contract boundary, signed quote/intent inputs, settlement event, and the separate service-delivery proof; a single connected diagram communicates those relationships better than five equal-sized tiles. |
-| Three restrained process silhouettes | A document being authored, a request moving to a payee, and a receipt being marked make the existing three steps easier to scan without introducing extra controls or implying that the fixture flow is already on-chain. All motion stops for reduced-motion preferences. |
+| Four factual footer labels instead of partner marks | The page names the deployed testnet contracts, wallet actions, and remaining integration limits without implying endorsements. |
+| One enlarged protocol diagram with the mandate vault as its visual center | The architecture section explains the contract boundary and intended signed quote/intent inputs while the page states that settlement and delivery are not connected to the demo. |
+| Three restrained process silhouettes | A mandate being authored, a request moving to a payee, and a receipt being marked make the product steps easier to scan. All motion stops for reduced-motion preferences. |
 
 ## Content rules
 
-- Public app values are labelled as synthetic fixtures.
+- Contract-derived values are read from the connected BNB Testnet wallet and vault.
 - The page makes no performance, security, customer, or partnership claim.
 - Payment confirmation and service delivery remain distinct states.

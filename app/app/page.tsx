@@ -1,3 +1,3 @@
-import { DemoWorkspace } from "../../components/demo-workspace";
+import { VaultFundingPanel } from "../../components/vault-funding-panel";
 
-export default function WorkspacePage() { return <DemoWorkspace />; }
+export default function WorkspacePage() { return <VaultFundingPanel />; }

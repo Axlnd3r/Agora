@@ -1,2 +1,3 @@
-import Link from "next/link";
-export default function ActivityPage() { return <><div className="page-heading"><div><p className="eyebrow">Activity</p><h1>Events from the fixture workspace</h1><p>Actual indexed events will appear here after an owner connects a wallet and uses a deployed contract.</p></div></div><section className="activity-section"><div className="activity-row"><span className="status confirmed">Confirmed</span><div><strong>Settlement receipt</strong><small>0.02 mUSD · invoice-check service</small></div><Link href="/app/payments/demo-payment">Proof</Link></div><div className="activity-row"><span className="status delivered">Delivered</span><div><strong>Merchant delivery</strong><small>Invoice result retrieved after payment</small></div><Link href="/app/runs/demo-run">Timeline</Link></div></section></>; }
+import { ActivityLedger } from "../../../components/activity-ledger";
+
+export default function ActivityPage() { return <ActivityLedger />; }

@@ -616,7 +616,7 @@ Domain pada semua invoice dan intent:
 
 ```json
 {
-  "name": "MandatePay",
+  "name": "Agora",
   "version": "1",
   "chainId": 97,
   "verifyingContract": "<alamat-vault-hasil-deployment>"
@@ -630,7 +630,7 @@ Invoice(bytes32 invoiceId,bytes32 requestId,bytes32 mandateId,bytes32 serviceId,
 PaymentIntent(bytes32 mandateId,bytes32 invoiceDigest,uint64 deadline)
 ```
 
-`invoiceDigest` adalah **digest EIP-712 penuh**, bukan JSON hash atau struct hash. `hashInvoice` menggunakan domain vault dan field lengkap. Agent menandatangani PaymentIntent yang berisi digest tersebut. `paymentDigest` yang dikembalikan settlement sama dengan digest PaymentIntent.
+Domain `Agora` mengikuti kontrak testnet yang telah dideploy dan keputusan identitas di `docs/adr/0001-agora-identity-and-local-toolchain.md`. `invoiceDigest` adalah **digest EIP-712 penuh**, bukan JSON hash atau struct hash. `hashInvoice` menggunakan domain vault dan field lengkap. Agent menandatangani PaymentIntent yang berisi digest tersebut. `paymentDigest` yang dikembalikan settlement sama dengan digest PaymentIntent.
 
 Gunakan OpenZeppelin EIP712 dan ECDSA, bukan merakit recovery signature sendiri. `abi.encode` untuk struct hashing, bukan packed encoding data dinamis. Buat golden vector yang membandingkan `viem.hashTypedData` dengan `hashInvoice/hashIntent` dari kontrak lokal. [OpenZeppelin cryptography](https://docs.openzeppelin.com/contracts/5.x/api/utils/cryptography)
 

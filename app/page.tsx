@@ -4,9 +4,9 @@ import { MarketingHeader } from "../components/marketing-header";
 import { Reveal } from "../components/reveal";
 
 const steps = [
-  ["01", "Write the mandate", "Choose the agent, service, budget limits, and expiry. The vault reserves only that amount."],
-  ["02", "Run a paid task", "The agent requests a signed quote and submits an authorization bound to that one request."],
-  ["03", "Read the receipt", "Agora records payment and service delivery separately so a confirmed transfer is never mistaken for a result."],
+  ["01", "Create the mandate", "Set the agent, allowed merchant, budget limits, and expiry. The BNB Testnet vault reserves that amount."],
+  ["02", "Control the vault", "The demo can fund the vault and pause, resume, or revoke mandates through your connected wallet."],
+  ["03", "Buy one invoice check", "The demo agent signs an intent for a merchant quote. The vault settles 0.02 test mUSD before the result is delivered."],
 ];
 
 function ProcessSilhouette({ step }: { step: string }) {
@@ -53,16 +53,16 @@ export default function Home() {
         <MarketingHeader />
         <div className="hero-copy">
           <h1 id="hero-title"><span>A bounded wallet</span><span>for every agent.</span></h1>
-          <p className="lede">Set an agent budget, approved merchant, payment limit, and expiry. The current workspace replays this flow with clearly labelled fixture data.</p>
+          <p className="lede">Set a spending mandate on BNB Testnet, then run one paid invoice check through an HTTP 402 quote and on-chain settlement.</p>
           <div className="hero-actions">
             <Link className="button button-light" href="/app">Open the demo workspace</Link>
             <a className="text-link" href="#architecture">See the control flow</a>
           </div>
         </div>
         <div className="hero-foot">
-          <span>BNB Smart Chain Testnet target</span>
-          <span>Fixture workspace</span>
-          <span>No wallet connected</span>
+          <span>BNB Smart Chain Testnet contracts deployed</span>
+          <span>Wallet transactions enabled</span>
+          <span>Mandate events read on-chain</span>
           <span>Contracts not audited</span>
         </div>
       </section>
@@ -70,7 +70,7 @@ export default function Home() {
       <section className="section process" id="how-it-works" aria-labelledby="process-title">
         <Reveal>
           <div className="section-label">How Agora works</div>
-          <h2 id="process-title">Permission comes first. Payment follows the rules.</h2>
+          <h2 id="process-title">From permission to a paid result.</h2>
           <div className="process-list">
             {steps.map(([number, title, description]) => (
               <article className="process-item" key={number}>
@@ -89,14 +89,14 @@ export default function Home() {
             <div className="section-label">A hard boundary</div>
             <h2 id="security-title">A compromised agent cannot spend beyond its mandate.</h2>
           </div>
-          <p>The vault checks the designated agent, merchant, service, amount, daily cap, total cap, and expiry before it settles a payment. Agora is a hackathon MVP on BNB Smart Chain Testnet. Demo token has no monetary value. Contracts are not audited.</p>
+          <p>The contract checks agent and merchant signatures, service, amount, daily cap, total cap, and expiry before settling a payment. This demo connects those checks to one deterministic invoice-check service on BNB Smart Chain Testnet. The mUSD token has no monetary value. Contracts are not audited.</p>
         </Reveal>
       </section>
 
       <section className="architecture" id="architecture" aria-labelledby="architecture-title">
         <Reveal>
-          <div className="section-label">Architecture</div>
-          <h2 id="architecture-title">The owner sets the boundary. The chain enforces it.</h2>
+          <div className="section-label">Settlement design</div>
+          <h2 id="architecture-title">One paid service follows this contract flow.</h2>
           <div className="architecture-viewport" role="region" aria-label="Agora payment architecture diagram. Scroll horizontally on smaller screens." tabIndex={0}>
             <svg className="architecture-map" viewBox="0 0 1120 430" role="img" aria-labelledby="architecture-map-title architecture-map-description">
               <title id="architecture-map-title">Agora mandate and payment architecture</title>

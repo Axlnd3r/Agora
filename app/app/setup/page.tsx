@@ -1,2 +1,3 @@
-import Link from "next/link";
-export default function SetupPage() { return <section className="form-panel"><p className="eyebrow">Vault setup</p><h1>Connect the right network before you create a vault.</h1><p>The frontend shell is ready for BNB Smart Chain Testnet. Wallet connection, contract deployment, and token minting still need configured infrastructure.</p><Link className="button secondary" href="/app">Return to fixture workspace</Link></section>; }
+import { VaultFundingPanel } from "../../../components/vault-funding-panel";
+
+export default function SetupPage() { return <VaultFundingPanel setup />; }

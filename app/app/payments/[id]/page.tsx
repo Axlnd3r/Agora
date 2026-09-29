@@ -1,2 +1,5 @@
-import Link from "next/link";
-export default function PaymentPage() { return <><div className="page-heading"><div><p className="eyebrow">Payment proof</p><h1>Invoice-check settlement</h1><p>Fixture evidence only. The identifiers below are intentionally shortened.</p></div><span className="status confirmed">Payment confirmed</span></div><section className="proof-panel"><div><p className="eyebrow">On-chain receipt</p><dl className="facts"><div><dt>Chain</dt><dd>BNB Smart Chain Testnet (97)</dd></div><div><dt>Vault</dt><dd>0x71c…e20a</dd></div><div><dt>Merchant</dt><dd>0x89a…70f1</dd></div><div><dt>Amount</dt><dd>0.02 mUSD</dd></div><div><dt>Transaction</dt><dd>Fixture record only</dd></div></dl></div><div className="delivery-card"><p className="eyebrow">Service delivery</p><h2>Delivered</h2><p>The merchant result was recorded after payment. A payment receipt alone does not mean service delivery succeeded.</p><Link href="/app/runs/demo-run">See run timeline</Link></div></section></>; }
+import { redirect } from "next/navigation";
+
+export default async function PaymentPage() {
+  redirect("/app/activity");
+}

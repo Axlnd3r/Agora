@@ -1,2 +1,5 @@
-const stages = [["Task accepted", "The fixture task was accepted."], ["Quote received", "Merchant quote: 0.02 mUSD."], ["Payment confirmed", "The receipt confirms one settlement."], ["Delivered", "Invoice-check result is available."]];
-export default function RunPage() { return <><div className="page-heading"><div><p className="eyebrow">Run fixture</p><h1>Invoice review</h1><p>Payment and delivery are shown as different states.</p></div></div><section className="timeline">{stages.map(([title, description], index) => <div className="timeline-item" key={title}><span>{index + 1}</span><div><strong>{title}</strong><p>{description}</p></div></div>)}</section></>; }
+import { redirect } from "next/navigation";
+
+export default async function RunPage() {
+  redirect("/app/runs/new");
+}

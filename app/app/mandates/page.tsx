@@ -1,2 +1,3 @@
-import Link from "next/link";
-export default function MandatesPage() { return <><div className="page-heading"><div><p className="eyebrow">Mandates</p><h1>Spending authority</h1><p>One testnet fixture is available in this workspace.</p></div><Link className="button button-light" href="/app/mandates/new">Create a mandate</Link></div><section className="surface mandate-row"><div><span className="status confirmed">Active</span><h2>Invoice verification</h2><p>Invoice review agent can use 10.00 mUSD only with the invoice-check service.</p></div><Link href="/app/mandates/demo-mandate">Review limits</Link></section></>; }
+import { MandateList } from "../../../components/mandate-list";
+
+export default function MandatesPage() { return <MandateList />; }
