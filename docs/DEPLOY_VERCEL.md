@@ -2,6 +2,10 @@
 
 Agora adalah aplikasi Next.js dengan satu layanan berbayar di BNB Smart Chain Testnet. Repo GitHub digunakan sebagai sumber deployment; kontrak dan mandat demo sudah terpasang di chain 97.
 
+## Deployment saat ini
+
+Production sudah live di [https://agora-nine-peach.vercel.app](https://agora-nine-peach.vercel.app), terhubung ke repo `Axlnd3r/Agora`, dan memakai environment server yang disimpan sebagai secret. `/api/health` dan `/api/demo/config` sudah diperiksa; planner Gemini live berstatus siap. Langkah impor dan konfigurasi berikut dapat dipakai untuk membangun ulang project atau memindahkannya ke akun Vercel lain.
+
 ## Impor repo
 
 1. Di Vercel, pilih **Add New → Project** dan impor `Axlnd3r/Agora` dari GitHub.

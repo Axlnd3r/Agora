@@ -2,23 +2,25 @@
 
 This runbook covers the single paid `invoice-check:v1` service on BNB Smart Chain Testnet. Planner mode is shown in the run UI: `fixture` is deterministic, while `live` calls Gemini before a new payment.
 
+Use the public production URL for the next demo: [https://agora-nine-peach.vercel.app](https://agora-nine-peach.vercel.app). Production health and Gemini live configuration are ready. A browser-wallet payment from this hosted URL and the final recording are still pending; follow [`PRD_NEXT_DEMO.md`](PRD_NEXT_DEMO.md) before recording.
+
 For a spoken walkthrough, use [`VIDEO_SCRIPT_ID.md`](VIDEO_SCRIPT_ID.md).
-Gemini setup is in [`GEMINI_PLANNER.md`](GEMINI_PLANNER.md). Live paid runs have been verified through both the CLI and browser wallet; show the mode actually displayed by the recording browser.
+Gemini setup is in [`GEMINI_PLANNER.md`](GEMINI_PLANNER.md). Earlier live paid runs succeeded through the CLI and browser wallet; the hosted run is the next check. Show the mode actually displayed by the recording browser.
 
 ## Before recording
 
-1. Keep `.env.deploy.local` and `.env.local` on this computer. Both are ignored by Git. Never enter a private key in chat, a commit, or a screenshot. The owner key in `.env.deploy.local` must stay out of server settings; only the separate demo agent, merchant, and relayer keys from `.env.local` belong in server settings when deployment resumes.
-2. In the MetaMask browser extension, open the account selector, choose **Add wallet → Import an account**, and use the `DEPLOYER_PRIVATE_KEY` value from `.env.deploy.local` on this device. The public address must be `0xDcF6FA998Ba319eDf790e243E100C2f48210282E`. Keep the key out of chat, screenshots, and recordings.
+1. Keep `.env.deploy.local` and `.env.local` private on the development computer; both are ignored by Git. The owner key stays in the owner wallet and is never a Vercel server setting. The server signer keys are already configured as Vercel secrets.
+2. On the recording computer, restore or import the owner account in MetaMask using the owner's own secure wallet backup. Verify the public address is `0xDcF6FA998Ba319eDf790e243E100C2f48210282E`. Keep the private key and seed phrase out of chat, commits, screenshots, and recordings.
 3. Select BNB Smart Chain Testnet, chain ID `97`. The app uses `https://bnb-testnet.api.onfinality.io/public` for historical event reads and `https://bsc-testnet-rpc.publicnode.com` for regular chain calls; the explorer is `https://testnet.bscscan.com`.
-4. Run `npm run demo:chain` to inspect owner tBNB, relayer tBNB, wallet mUSD, and vault mUSD. The vault and demo mandate were seeded by `npm run demo:seed`; the public details are in [`deployments/demo-testnet.json`](../deployments/demo-testnet.json).
-5. Run `npm run verify` and `npm run dev`, or open the deployed Vercel URL after it has the four `AGORA_*` server variables, `SERVER_RPC_URL`, and the Gemini planner settings configured. Never upload `DEPLOYER_PRIVATE_KEY` to Vercel.
+4. Open `/app` on the public production URL. Confirm the owner wallet, vault balance, and active mandate load before opening `/app/runs/new`. The current public deployment is already configured; never upload `DEPLOYER_PRIVATE_KEY` to Vercel.
+5. Check `/api/health` and `/api/demo/config`. Continue only when health is `ok`, `ready` is `true`, and the planner is `live` with `gemini-3.5-flash-lite`.
 
 ## Screen flow
 
 1. Show the landing page and explain that mUSD is a test token with no monetary value.
 2. Connect the owner wallet at `/app`. Show the vault balance and the reserved amount.
 3. Open `/app/mandates`, select the active mandate, and show its agent, merchant, service ID, per-payment cap, and pause/revoke controls. The seeded mandate ID is in the demo manifest.
-4. Select **Run invoice check**. Keep the default synthetic invoice: 2 × 100000 IDR minor units, declared total 200000. Approve the owner authorization message. The server receives a signed merchant quote through HTTP 402, creates an agent intent, settles 20000 atomic mUSD (`0.02 mUSD`) via the relayer, and returns the arithmetic result.
+4. Select **Run paid invoice check**. Keep the default synthetic invoice: 2 × 100000 IDR minor units, declared total 200000. Approve the owner authorization message. The server receives a signed merchant quote through HTTP 402, creates an agent intent, settles 20000 atomic mUSD (`0.02 mUSD`) via the relayer, and returns the arithmetic result in the success dialog.
 5. Open the BscScan transaction link. The `PaymentSettled` event and token transfer are the payment evidence. Refresh Activity to see the vault event.
 6. Show a rejection by pausing the mandate and trying a **new** invoice-check request. Resume before continuing. A failed request must not be presented as an on-chain reverted transaction unless a transaction was actually broadcast.
 

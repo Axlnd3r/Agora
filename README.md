@@ -4,6 +4,10 @@ Agora is a BNB Smart Chain Testnet demo for bounded agent spending. An owner con
 
 An owner defines a mandate with an agent, merchant service, budget limits, and expiry. The `/app` workspace connects an injected browser wallet to the deployed BNB Smart Chain Testnet contracts and reads balances, vaults, mandates, and events directly from chain. Wallet actions include the DemoUSD faucet, vault creation and funding, mandate creation, and mandate pause, resume, and revoke.
 
+## Hosted demo
+
+The public production app is [agora-nine-peach.vercel.app](https://agora-nine-peach.vercel.app). The next hosted browser-wallet rehearsal and video recording are tracked in [docs/PRD_NEXT_DEMO.md](docs/PRD_NEXT_DEMO.md).
+
 The paid task uses an HTTP 402 challenge with a custom x402 v2 `mandatepay` scheme. A merchant signer issues an EIP-712 invoice, the configured agent signs a matching intent after the owner authorizes the run, and a separate relayer calls `MandateVault.settlePayment`. The merchant computes invoice arithmetic only after confirmed settlement. The planner supports a labeled fixture mode and a Gemini live mode. Four Gemini live payments have been verified end to end, including two through a browser wallet; there is no general merchant integration.
 
 ## Run locally
